@@ -1,0 +1,6 @@
+transformers==2.7.0
+torch==1.4.0
+scipy==1.4.1
+sklearn==0.22.2.post1
+tensorboardX==2.0
+pytreebank
