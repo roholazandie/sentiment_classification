@@ -1,4 +1,4 @@
-### Sentiment classification using transformers
+# Sentiment classification using transformers
 This repository contains the code for sentiment classification for 3 class sentiment classification
 which are {"negative", "neutral", "positive"}.
 
