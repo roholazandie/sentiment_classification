@@ -1,0 +1,6 @@
+{
+    "model_path":"./model_out/",
+    "host": "localhost",
+    "port": 5555,
+    "use_cuda": false
+}

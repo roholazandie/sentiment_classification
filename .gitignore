@@ -145,3 +145,5 @@ static
 .idea
 dataset/
 model_out/
+
+env/

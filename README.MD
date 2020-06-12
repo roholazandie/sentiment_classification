@@ -23,7 +23,13 @@ print(result)
 
 [{'label': 'positive', 'score': 0.9996757}]
 ```
+### RESTful client app
+You can also run this as a restful app. You just need to run app.py and then call it with:
 
+```nashorn js
+curl --header "Content-Type: application/json" --request POST --data '{"sentence":"You are so cute!"}' http://localhost:5555/api/rest/classify_sentiment
+```
+You can change the config for port and other settings in config.json.
 
 ## Train
 The current dataset used here is from SST [stanford sentiment treebank](http://nlp.stanford.edu/~socherr/stanfordSentimentTreebank.zip).
