@@ -17,7 +17,7 @@ if config.use_cuda:
 def classify_sentiment():
     rest_request = json.loads(request.data.decode('utf-8'))
     sentence = str(rest_request["sentence"])
-    sentiment_classifier = TextClassificationPipeline(model, tokenizer, device=0 if config.use_cuda else -1)
+    sentiment_classifier = TextClassificationPipeline(model=model, tokenizer=tokenizer, device=0 if config.use_cuda else -1)
 
     result = sentiment_classifier(sentence)
     return str(result)

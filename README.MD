@@ -2,12 +2,18 @@
 This repository contains the code for sentiment classification for 3 class sentiment classification
 which are {"negative", "neutral", "positive"}.
 
+
 This is implemented with [transformers](https://github.com/huggingface/transformers) library from huggingface.
 
 The current implementation uses distillbert but you can easily change the base model to anything else.
+```
+eval_acc = 0.6902815622161671
+eval_f1 = 0.6413170581798763
+eval_acc_and_f1 = 0.6657993101980217
+```
 
 ## Usage
-You can download the pre-trained models [here](https://drive.google.com/open?id=1E4WJoqBe03vJxs8aSJJqNkXGpWrsPfRd). Extract and then use it like:
+You can download the pre-trained models [here](https://drive.google.com/file/d/1gJ2aLtHejB-kOpc302HGxBtZuZm8YLf8/view?usp=sharing). Extract and then use it like:
 
 ```python
 
@@ -16,7 +22,7 @@ from transformers import DistilBertTokenizer, DistilBertForSequenceClassificatio
 tokenizer = DistilBertTokenizer.from_pretrained("./model_out/")
 model = DistilBertForSequenceClassification.from_pretrained("./model_out/")
 
-sentiment_classifier = TextClassificationPipeline(model, tokenizer)
+sentiment_classifier = TextClassificationPipeline(model=model, tokenizer=tokenizer)
 
 result = sentiment_classifier("this is so cute!")
 print(result)
@@ -43,5 +49,5 @@ python create_dataset.py --raw_dataset_dir <path_to_raw_dataset> --output_dir <p
 After you convert the dataset to proper format. You can train:
 
 ```
-python train.py --model_type distilbert --model_name_or_path distilbert-base-cased --task_name sst-full --do_train --do_eval --do_lower_case --data_dir <dataset_dir> --max_seq_length 128 --per_gpu_eval_batch_size=8 --per_gpu_train_batch_size=8 --learning_rate 2e-5 --num_train_epochs 10 --eval_all_checkpoints --output_dir <model_out_dir> --save_steps 2000 --logging_steps 500 --evaluate_during_training --overwrite_cache
+python train.py --model_name_or_path distilbert-base-cased --task_name sst-full --do_train --do_eval --data_dir <dataset_dir> --max_seq_length 128 --per_gpu_eval_batch_size=8 --per_gpu_train_batch_size=8 --learning_rate 2e-5 --num_train_epochs 10 --output_dir <model_out_dir> --save_steps 2000 --logging_steps 500 --evaluate_during_training --overwrite_cache
 ```

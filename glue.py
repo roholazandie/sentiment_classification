@@ -135,7 +135,7 @@ def glue_convert_examples_to_features(
 
         features.append(
             InputFeatures(
-                input_ids=input_ids, attention_mask=attention_mask, token_type_ids=token_type_ids, label=label
+                input_ids=input_ids, attention_mask=attention_mask, label=label
             )
         )
 
@@ -572,6 +572,7 @@ glue_tasks_num_labels = {
     "qnli": 2,
     "rte": 2,
     "wnli": 2,
+    "sst-full": 3
 }
 
 glue_processors = {

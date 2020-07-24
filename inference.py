@@ -42,7 +42,7 @@ def simple_inference():
     tokenizer = DistilBertTokenizer.from_pretrained("./model_out/")
     model = DistilBertForSequenceClassification.from_pretrained("./model_out/")
     model.to('cpu')
-    sentiment_classifier = TextClassificationPipeline(model, tokenizer, device=-1)
+    sentiment_classifier = TextClassificationPipeline(model=model, tokenizer=tokenizer, device=-1)
 
 
     t1 = time.time()
@@ -60,5 +60,5 @@ def simple_inference():
 
 
 if __name__ == "__main__":
-    full_inference()
+    #full_inference()
     simple_inference()
